@@ -10,6 +10,11 @@ import { AlimentacionConsultaFormComponent } from './productos-consulta/alimenta
 import { AlimentacionConsultaComponent } from './productos-consulta/alimentacion-consulta/alimentacion-consulta.component';
 import { MenajeConsultaFormComponent } from './productos-consulta/menaje-consulta-form/menaje-consulta-form.component';
 import { MenajeConsultaComponent } from './productos-consulta/menaje-consulta/menaje-consulta.component';
+import { AlimentacionItemComponent } from './productos/alimentacion-item/alimentacion-item.component';
+import { AlimentacionModificarComponent } from './productos/alimentacion-modificar/alimentacion-modificar.component';
+import { MenajeItemComponent } from './productos/menaje-item/menaje-item.component';
+import { MenajeModificarComponent } from './productos/menaje-modificar/menaje-modificar.component';
+import { ProductosFormComponent } from './productos/productos-form/productos-form.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -17,7 +22,12 @@ import { MenajeConsultaComponent } from './productos-consulta/menaje-consulta/me
     AlimentacionConsultaFormComponent,
     AlimentacionConsultaComponent,
     MenajeConsultaFormComponent,
-    MenajeConsultaComponent
+    MenajeConsultaComponent,
+    AlimentacionItemComponent,
+    AlimentacionModificarComponent,
+    MenajeItemComponent,
+    MenajeModificarComponent,
+    ProductosFormComponent
   ],
   imports: [
     BrowserModule,
