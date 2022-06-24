@@ -1,1 +1,28 @@
-<p>productos works!</p>
+<main>
+    <div class="container mt-auto">
+        <br>
+        <h3>Productos</h3>
+  
+        <div *ngFor="let alimentacion of alimentaciones" id="alimentaciones">
+            <app-alimentacion-item
+                [alimentacion]="alimentacion"
+                (alimentacionEliminar)="onAlimentacionEliminar($event)"
+                (alimentacionEditar)="onAlimentacionEditar($event)">
+            </app-alimentacion-item>
+  
+  
+        </div>
+  
+        <div *ngFor="let menaje of menajes" id="menajes">
+            <app-menaje-item
+                [menaje]="menaje"
+                (menajeEliminar)="onMenajeEliminar($event)"
+                (menajeEditar)="onMenajeEditar($event)">
+            </app-menaje-item>
+  
+        </div>
+  
+    </div>
+  
+  </main>
+  

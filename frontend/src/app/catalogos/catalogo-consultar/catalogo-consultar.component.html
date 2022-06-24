@@ -1,1 +1,25 @@
-<p>catalogo-consultar works!</p>
+<body class="d-flex flex-column min-vh-100">
+    <main>
+      <div class="container mt-auto">
+  
+        <h2>{{ catalogo.des }}</h2>
+  
+        <div class="row justify-content-center">
+          <div class="col-8">
+            <form action="/action_page.php" class="was-validated">
+  
+              <div class="mb-3 mt-3">
+                <label class="form-label">descripcion</label>
+                <input type="text" class="form-control" id="nombreOperacion" [(ngModel)]="catalogo.descripcion" readonly>
+              </div>
+            </form>
+          </div>
+        </div>
+        <pre>{{ catalogo | json }}</pre>
+      <div>
+        <app-productos-consultar></app-productos-consultar>
+      </div>
+  
+      </div>
+    </main>
+  </body>

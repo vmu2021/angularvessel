@@ -1,1 +1,25 @@
-<p>productos-consulta works!</p>
+<main>
+    <div class="container mt-auto">
+  
+      <h3>Productos</h3>
+  
+      <div *ngFor="let alimentacion of alimentaciones">
+        <app-alimentaciones-consulta [alimentacion]="alimentacion"
+        (alimentacionConsultar)="onAlimentacionConsultar($event)">
+        </app-alimentaciones-consulta>
+  
+        <pre>{{ alimentacion | json }}</pre>
+  
+      </div>
+  
+      <div *ngFor="let menaje of menajes">
+        <app-menajes-consulta [menaje]="menaje"
+        (menajeConsultar)="onMenajeConsultar($event)">
+        </app-menajes-consulta>
+  
+        <pre>{{ menaje | json }}</pre>
+  
+      </div>
+    </div>
+  </main>
+  

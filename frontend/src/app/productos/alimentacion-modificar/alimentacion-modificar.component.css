@@ -1,0 +1,15 @@
+section {
+    margin-left: 30%;
+    margin-right: 30%;
+    height: auto;
+  }
+  
+  label{
+    color:rgb(0, 0, 0);
+    width:8cm;
+  }
+  
+  input{
+    color:rgb(48, 48, 48);
+  }
+  

@@ -28,8 +28,8 @@ export class ProductosConsultaComponent implements OnInit {
   this.menajes = this.productoService.extraerMenajes(res));
   }
 
-  onLavadoraEliminar(alimento: AlimentacionImpl){
-    this.productoService.deleteAlimentacion(alimento.idProducto).subscribe();
+  onAlimentacionEliminar(alimento: AlimentacionImpl){
+    this.productoService.deleteAlimentaciones(alimento.idProducto).subscribe();
   }
 
   onAlimentacionEditar(alimento: AlimentacionImpl){
@@ -43,7 +43,7 @@ export class ProductosConsultaComponent implements OnInit {
   }
 
   onMenajeEditar(menaje: MenajeImpl){
-    this.menajeDatos = menaje;
+    this.menajeVerDatos = menaje;
     let url = `catalogos/menajes/editar/${menaje.idProducto}`;
     this.router.navigate([url])
   }

@@ -6,23 +6,18 @@ import { AlimentacionImpl } from '../catalogos/models/alimentacion-impl';
 import { MenajeImpl } from '../catalogos/models/menaje-impl';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ProductoService {
-
   private host: string = environment.host;
   private urlEndPoint: string = `${this.host}catalogos`;
   private urlEndPointAli: string = `${this.host}alimentaciones`;
   private urlEndPointMen: string = `${this.host}menajes`;
 
+  constructor(private http: HttpClient) {}
 
-  constructor(
-    private http: HttpClient,
-    ) { }
-
-
-  getProductosAlmacenados(id:string): Observable<any>{
-    return this.http.get<any>(`${this.urlEndPoint}/${id}/electrodomesticos`).pipe(
+  getProductosCatalogados(id: string): Observable<any> {
+    return this.http.get<any>(`${this.urlEndPoint}/${id}/productos`).pipe(
       catchError((e) => {
         if (e.status === 400) {
           return throwError(() => new Error(e));
@@ -35,34 +30,36 @@ export class ProductoService {
     );
   }
 
-  mapearAlimentacion(alimentoApi: any): AlimentacionImpl {
-
+  mapearAlimentaciones(alimentoApi: any): AlimentacionImpl {
     let alimentoNuevo: AlimentacionImpl = new AlimentacionImpl();
 
     // alimentoNuevo.catalogo=alimentoApi._links.catalogo.href;
-    alimentoNuevo.descripcion= alimentoApi.marca;
-    alimentoNuevo.precio= alimentoApi.precio;
-    alimentoNuevo.refrigerable= alimentoApi.refrigerable;
+    alimentoNuevo.descripcion = alimentoApi.marca;
+    alimentoNuevo.precio = alimentoApi.precio;
+    alimentoNuevo.refrigerable = alimentoApi.refrigerable;
     // alimentoNuevo.urlProducto=alimentoApi._links.self.href;
-    alimentoNuevo.idProducto=this.getId(alimentoApi._links.alimentacion.href);
+    alimentoNuevo.idProducto = this.getId(
+      alimentoApi._links.alimentaciones.href
+    );
     return alimentoNuevo;
   }
 
-  extraerAlimentacion(respuestaApi: any): AlimentacionImpl[]{
-    const lavadoras: (AlimentacionImpl[]) = [];
-    let respuesta: any = respuestaApi._embedded.lavadoras;
-    if(respuesta === undefined) {
+  extraerAlimentaciones(respuestaApi: any): AlimentacionImpl[] {
+    const alimentaciones: AlimentacionImpl[] = [];
+    let respuesta: any = respuestaApi._embedded.alimentaciones;
+    if (respuesta === undefined) {
       console.info('No existen alimentos en este catalogo');
+    } else {
+      respuestaApi._embedded.alimentaciones.forEach((p: any) => {
+        alimentaciones.push(this.mapearAlimentaciones(p));
+      });
     }
-    else {respuestaApi._embedded.lavadoras.forEach((p: any) => {
-      lavadoras.push(this.mapearAlimentacion(p));
-    });}
-    return lavadoras;
+    return alimentaciones;
   }
 
-   //post
-   addAlimentacion(lavadora: AlimentacionImpl): Observable <any>{
-    return this.http.post(this.urlEndPointAli, lavadora).pipe(
+  //post
+  addAlimentaciones(alimento: AlimentacionImpl): Observable<any> {
+    return this.http.post(this.urlEndPointAli, alimento).pipe(
       catchError((e) => {
         if (e.status === 400) {
           return throwError(() => new Error(e));
@@ -76,7 +73,7 @@ export class ProductoService {
   }
 
   //delete
-  deleteLavadora(id: string): Observable <any>{
+  deleteAlimentaciones(id: string): Observable<any> {
     return this.http.delete(`${this.urlEndPointAli}/${id}`).pipe(
       catchError((e) => {
         if (e.status === 400) {
@@ -89,24 +86,26 @@ export class ProductoService {
       })
     );
   }
-//patch
-  updateLavadora(lavadora: AlimentacionImpl){
-    return this.http.patch<any>(`${this.urlEndPointAli}/${lavadora.idProducto}`, lavadora).pipe(
-      catchError((e) => {
-        if (e.status === 400) {
+  //patch
+  updateAlimentaciones(alimento: AlimentacionImpl) {
+    return this.http
+      .patch<any>(`${this.urlEndPointAli}/${alimento.idProducto}`, alimento)
+      .pipe(
+        catchError((e) => {
+          if (e.status === 400) {
+            return throwError(() => new Error(e));
+          }
+          if (e.error.mensaje) {
+            console.error(e.error.mensaje);
+          }
           return throwError(() => new Error(e));
-        }
-        if (e.error.mensaje) {
-          console.error(e.error.mensaje);
-        }
-        return throwError(() => new Error(e));
-      })
-    );
+        })
+      );
   }
 
   //get
 
-  getLavadora(id:string): Observable<any>{
+  getAlimentaciones(id: string): Observable<any> {
     return this.http.get<any>(`${this.urlEndPointAli}/${id}`).pipe(
       catchError((e) => {
         if (e.status === 400) {
@@ -120,35 +119,31 @@ export class ProductoService {
     );
   }
 
-
-
-  mapearMenaje(menajeApi: any): MenajeImpl {
-
+  mapearMenajes(menajeApi: any): MenajeImpl {
     let menajeNuevo = new MenajeImpl();
 
-    menajeNuevo.descripcion= menajeApi.calificacionEnergetica;
-    menajeNuevo.precio= menajeApi.precio;
-    menajeNuevo.reciclable= menajeApi.reciclable;
-    menajeNuevo.idProducto=this.getId(menajeApi._links.televisor.href);
+    menajeNuevo.descripcion = menajeApi.calificacionEnergetica;
+    menajeNuevo.precio = menajeApi.precio;
+    menajeNuevo.reciclable = menajeApi.reciclable;
+    menajeNuevo.idProducto = this.getId(menajeApi._links.menaje.href);
     return menajeNuevo;
-
   }
 
-  extraerMenaje(respuestaApi: any): MenajeImpl[] {
-    const televisores: MenajeImpl[] = [];
-    let respuesta: any= respuestaApi._embedded.televisores;
-    if(respuesta===undefined){
+  extraerMenajes(respuestaApi: any): MenajeImpl[] {
+    const menajes: MenajeImpl[] = [];
+    let respuesta: any = respuestaApi._embedded.menajes;
+    if (respuesta === undefined) {
       console.info('No existe menaje en este catalogo');
+    } else {
+      respuestaApi._embedded.menajes.forEach((p: any) => {
+        menajes.push(this.mapearMenajes(p));
+      });
     }
-    else{
-    respuestaApi._embedded.televisores.forEach((p: any) => {
-      televisores.push(this.mapearMenaje(p));
-    });}
-    return televisores;
+    return menajes;
   }
 
-   //post menaje
-   addMenaje(menaje: MenajeImpl): Observable <any>{
+  //post menaje
+  addMenaje(menaje: MenajeImpl): Observable<any> {
     return this.http.post(this.urlEndPointMen, menaje).pipe(
       catchError((e) => {
         if (e.status === 400) {
@@ -163,7 +158,7 @@ export class ProductoService {
   }
 
   //delete menaje
-  deleteMenaje(id: string): Observable <any>{
+  deleteMenaje(id: string): Observable<any> {
     return this.http.delete(`${this.urlEndPointMen}/${id}`).pipe(
       catchError((e) => {
         if (e.status === 400) {
@@ -176,22 +171,24 @@ export class ProductoService {
       })
     );
   }
-//patch menaje
-  updateTelevisor(menaje: MenajeImpl){
-    return this.http.patch<any>(`${this.urlEndPointMen}/${menaje.idProducto}`, menaje).pipe(
-      catchError((e) => {
-        if (e.status === 400) {
+  //patch menaje
+  updateMenaje(menaje: MenajeImpl) {
+    return this.http
+      .patch<any>(`${this.urlEndPointMen}/${menaje.idProducto}`, menaje)
+      .pipe(
+        catchError((e) => {
+          if (e.status === 400) {
+            return throwError(() => new Error(e));
+          }
+          if (e.error.mensaje) {
+            console.error(e.error.mensaje);
+          }
           return throwError(() => new Error(e));
-        }
-        if (e.error.mensaje) {
-          console.error(e.error.mensaje);
-        }
-        return throwError(() => new Error(e));
-      })
-    );
+        })
+      );
   }
 
-  getMenaje(id:string): Observable<any>{
+  getMenaje(id: string): Observable<any> {
     return this.http.get<any>(`${this.urlEndPointMen}/${id}`).pipe(
       catchError((e) => {
         if (e.status === 400) {
@@ -205,13 +202,11 @@ export class ProductoService {
     );
   }
 
-
-
   // getProductosPagina(pagina: number): Observable<any> {
   //   return this.auxService.getItemsPorPagina(this.urlEndPoint, pagina);
   // }
 
-  getId(url:string): string {
+  getId(url: string): string {
     let posicionFinal: number = url.lastIndexOf('/');
     let numId: string = url.slice(posicionFinal + 1, url.length);
     return numId;

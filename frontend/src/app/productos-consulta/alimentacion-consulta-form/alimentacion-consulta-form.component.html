@@ -1,1 +1,111 @@
-<p>alimentacion-consulta-form works!</p>
+<body class="d-flex flex-column min-vh-100">
+  <main>
+    <div class="container mt-auto">
+      <div class="row justify-content-center">
+        <div class="col-8">
+          <h2>{{ alimentacion.descripcion }}</h2>
+          <form class="was-validated">
+            <div class="mb-3 mt-3">
+              <label class="form-label">Tipo de Producto:</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="alimentacion"
+                name="descripcionAlimentacion"
+                minlength="3"
+                maxlength="30"
+                readonly
+              />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Descripcion:</label>
+              <input
+                type="text"
+                class="form-control"
+                name="descripcionAlimentacion"
+                [(ngModel)]="alimentacion.descripcion"
+                readonly
+              />
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Modelo:</label>
+              <body class="d-flex flex-column min-vh-100">
+                <main>
+                  <div class="container mt-auto">
+                    <div class="row justify-content-center">
+                      <div class="col-8">
+                        <h2>{{ alimentacion.descripcion }}</h2>
+                        <form class="was-validated">
+                          <div class="mb-3 mt-3">
+                            <label class="form-label">Tipo de Producto:</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              placeholder="alimentacion"
+                              name="descripcionAlimentacion"
+                              minlength="3"
+                              maxlength="30"
+                              readonly
+                            />
+                          </div>
+
+                          <div class="mb-3">
+                            <label class="form-label">Descripcion:</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              name="descripcionAlimentacion"
+                              [(ngModel)]="alimentacion.descripcion"
+                              readonly
+                            />
+                          </div>
+
+                          <div class="mb-3">
+                            <label class="form-label">Descripcion:</label>
+                            <input
+                              type="text"
+                              class="form-control"
+                              name="descripcionAlimentacion"
+                              [(ngModel)]="alimentacion.descripcion"
+                              readonly
+                            />
+                          </div>
+                          <div><label class="form-label">Precio:</label></div>
+                          <div class="mb-3 input-group">
+                            <input
+                              type="text"
+                              class="form-control"
+                              [(ngModel)]="alimentacionprecio"
+                              readonly
+                            />
+                            <span class="input-group-text">€</span>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                  <br />
+                  <pre>{{ alimentacion | json }}</pre>
+                </main>
+              </body>
+            </div>
+            <div><label class="form-label">Precio:</label></div>
+            <div class="mb-3 input-group">
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="alimentacion.precio"
+                readonly
+              />
+              <span class="input-group-text">€</span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <br />
+    <pre>{{ alimentacion | json }}</pre>
+  </main>
+</body>

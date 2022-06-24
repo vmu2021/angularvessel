@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { CatalogoService } from 'src/app/service/catalogo.service';
+import { CatalogoImpl } from '../models/catalogo-impl';
 
 @Component({
   selector: 'app-catalogo-form',
@@ -7,9 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CatalogoFormComponent implements OnInit {
 
-  constructor() { }
+  catalogo: CatalogoImpl = new CatalogoImpl();
+
+  constructor(private catalogoService: CatalogoService,
+    private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  create(): void {
+    this.catalogoService.crearCatalogo(this.catalogo).subscribe();
+    this.router.navigate(['/catalgos']);
   }
 
 }
