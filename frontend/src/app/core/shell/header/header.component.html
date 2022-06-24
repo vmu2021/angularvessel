@@ -1,1 +1,71 @@
-<p>header works!</p>
+<nav
+  class="navbar navbar-expand-lg navbar-dark bg-dark align-items-center fixed-top"
+>
+  <a class="navbar-brand" routerLink="/"
+    ><img class="logo" /><span class="sr-only"></span
+  ></a>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#ejercicioProto"
+    aria-controls="navbarSupportedContent"
+    aria-controls="ejercicioProto"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <p>
+    <font color="white"> VESSEL LOGISTICS </font>
+  </p>
+  <div class="collapse navbar-collapse" id="vesselog">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown pt-3" routerlinkactive="router-link-active">
+        <a
+          class="nav-link dropdown-toggle lera"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Catalogos
+        </a>
+        <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item text-warning" routerLink="catalogos">
+            Listado Catalogos</a
+          >
+          <a class="dropdown-item text-warning" routerLink="formulario-catalogo">Crear Catalogo</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="collapse navbar-collapse" id="ejercicioProto">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown pt-3" routerlinkactive="router-link-active">
+        <a
+          class="nav-link dropdown-toggle lera"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Productos
+        </a>
+        <div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item text-warning" routerLink="productos">
+            Listado Productos</a
+          >
+          <a
+            class="dropdown-item text-warning"
+            routerLink="catalogos/formulario"
+          >
+            Crear Productos</a
+          >
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>

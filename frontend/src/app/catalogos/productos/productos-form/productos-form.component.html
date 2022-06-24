@@ -27,7 +27,7 @@
                 <label
                   class="form-label">Tipo de producto:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                <select [(ngModel)]="alimentacion.refrigerado" (change)="capturar()"
+                <select [(ngModel)]="alimentacion.refrigerable" (change)="capturar()"
                   [ngModelOptions]="{standalone: true}" aria-label="Default select example" required>
                   <option disabled selected></option>
                   <option *ngFor="let dato of datos">
@@ -47,7 +47,7 @@
               </div> -->
               <div class="mb-3 input-group" *ngIf="formulario == 1">
                 <label class="form-label">Precio:&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                <input type="number" class="form-control" [(ngModel)]="menaje.precio" placeholder="" name="precio" required
+                <input type="number" class="form-control" [(ngModel)]="alimentacion.precio" placeholder="" name="precio" required
                 min="1" max="99999" #prod21="ngModel" [ngClass]="{
               'is-invalid': prod21.invalid && (prod21.dirty || prod21.touched),
               'is-valid': ! prod21.invalid
@@ -66,18 +66,8 @@
                 <label
                   class="form-label">Tipo de producto:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                <select class="form-control"[(ngModel)]="menaje.Tipo" (change)="capturar()"
+                <select class="form-control"[(ngModel)]="menaje.reciclable" (change)="capturar()"
                   [ngModelOptions]="{standalone: true}" aria-label="Default select required" required>
-                  <option disabled selected></option>
-                  <option *ngFor="let dato of datos">
-                    {{dato}}
-                  </option>
-                </select>
-              </div>
-              <div class="mb-3 input-group" *ngIf="formulario == 2">
-                <label class="form-label">Tipo de menaje:&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                <select class="form-control" aria-label="Default select example" [(ngModel)]="menaje.reciclable" (change)="capturar()" [ngModelOptions]="{standalone: true}"
-                  required>
                   <option disabled selected></option>
                   <option *ngFor="let dato2 of datos2">
                     {{dato2}}

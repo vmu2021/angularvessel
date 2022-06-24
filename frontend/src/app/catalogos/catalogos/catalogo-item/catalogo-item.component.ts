@@ -10,15 +10,20 @@ import { CatalogoImpl } from '../../models/catalogo-impl';
 })
 export class CatalogoItemComponent implements OnInit {
 
-  @Output() catalogoResultado = new EventEmitter<Catalogo>();
+  @Output()
+  catalogoResultado = new EventEmitter<Catalogo>();
   catalogos: Catalogo[] = [];
   todosCatalogos: Catalogo[] = [];
   numPaginas: number = 0;
 
-  @Input() catalogo: Catalogo = new CatalogoImpl ();
-  @Output() catalogoConsultar = new EventEmitter<CatalogoImpl>();
-  @Output() catalogoEditar = new EventEmitter<Catalogo>();
-  @Output() catalogoEliminar = new EventEmitter<CatalogoImpl>();
+  @Input()
+  catalogo: Catalogo = new CatalogoImpl ();
+  @Output()
+  catalogoConsultar = new EventEmitter<CatalogoImpl>();
+  @Output()
+  catalogoEditar = new EventEmitter<Catalogo>();
+  @Output()
+  catalogoEliminar = new EventEmitter<CatalogoImpl>();
 
   constructor() { }
 

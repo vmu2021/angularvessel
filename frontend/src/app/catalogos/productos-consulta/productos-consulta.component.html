@@ -3,18 +3,18 @@
 
       <h3>Productos</h3>
 
-      <div *ngFor="let alimentacion of alimentaciones">
-        <app-alimentacion-consulta [alimentacion]="alimentacion"
-        (alimentacionConsultar)="onAlimentacionConsultar($event)">
+      <div *ngFor="let alimento of alimentos">
+        <app-alimentacion-consulta [alimentacion]="alimento"
+        (alimentacionConsultar)="onAlimentacionEditar($event)">
         </app-alimentacion-consulta>
 
-        <pre>{{ alimentacion | json }}</pre>
+        <pre>{{alimento| json }}</pre>
 
       </div>
 
       <div *ngFor="let menaje of menajes">
         <app-menaje-consulta [menaje]="menaje"
-        (menajeConsultar)="onMenajeConsultar($event)">
+        (menajeConsultar)="onMenajeEditar($event)">
         </app-menaje-consulta>
 
         <pre>{{ menaje | json }}</pre>
