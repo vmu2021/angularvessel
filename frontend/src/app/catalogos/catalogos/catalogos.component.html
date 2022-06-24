@@ -1,1 +1,14 @@
-<p>catalogos works!</p>
+
+<div class="container-fluid min-vh-100" id="general">
+  <div class="row">
+    <h2>CATALOGOS</h2>
+  </div>
+  <div *ngFor="let catalogo of catalogos" id="cadaCatalogo">
+    <app-catalogo-item
+    [catalogo]="catalogo"
+    (catalogoEditar)="onCatalogoEditar($event)"
+    (catalogoEliminar)="onCatalogoEliminar($event)"
+    (catalogoConsultar)="onCatalogoConsultar($event)">
+    </app-catalogo-item>
+  </div>
+</div>

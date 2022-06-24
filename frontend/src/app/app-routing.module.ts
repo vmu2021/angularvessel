@@ -11,6 +11,10 @@ const routes: Routes = [
   path: "not-found" , component: NotFoundComponent
   },
   {
+    path: 'catalogos',
+    loadChildren: () => import("./catalogos/catalogos.module").then((m) => m.CatalogosModule)
+  },
+  {
   path: "**" ,
   redirectTo: "not-found"
   },

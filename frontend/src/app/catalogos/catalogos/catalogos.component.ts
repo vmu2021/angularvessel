@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { faEye, faPencil, faTrashCan } from '@fortawesome/free-solid-svg-icons';
-import { CatalogoService } from 'src/app/service/catalogo.service';
 import { Catalogo } from '../models/catalogo';
 import { CatalogoImpl } from '../models/catalogo-impl';
+import { CatalogoService } from '../service/catalogo.service';
 
 @Component({
   selector: 'app-catalogos',

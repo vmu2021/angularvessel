@@ -1,0 +1,145 @@
+<body class="d-flex flex-column min-vh-100">
+    <main>
+      <br><br><br><br><br>
+      <div class="container mt-auto">
+        <div class="row justify-content-center">
+          <div class="col-8">
+            <h2>Añadir Producto</h2>
+            <form #nuevoProducto="ngForm" class="was-validated">
+              <div class="mb-3 mt-3">
+                <label id="tipoproducto" class="form-label">Tipo de Producto:</label>
+                <select [(ngModel)]="formulario" [ngModelOptions]="{standalone: true}" class="form-select"
+                  aria-label="Default select example" required>
+                  <option disabled selected></option>
+                  <option value="1">Alimentacion</option>
+                  <option value="2">Menaje</option>
+                </select>
+              </div>
+
+
+              <div class="mb-3" *ngIf="formulario == 1">
+                <label class="form-label">Descripcion:</label>
+                <input type="text" class="form-control" placeholder="p.e., tomtate" name="descripcion" minlength="3" maxlength="20"
+                  [(ngModel)]="alimentacion.descripcion" aria-label="Default select example" required>
+              </div>
+
+              <div class="mb-3 input-group" *ngIf="formulario == 1">
+                <label
+                  class="form-label">Tipo de producto:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <select [(ngModel)]="alimentacion.refrigerado" (change)="capturar()"
+                  [ngModelOptions]="{standalone: true}" aria-label="Default select example" required>
+                  <option disabled selected></option>
+                  <option *ngFor="let dato of datos">
+                    {{dato}}
+                  </option>
+                </select>
+              </div>
+              <!-- <div class="mb-3 input-group" *ngIf="formulario == 1">
+                <label class="form-label">Capacidad de Carga:&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <select aria-label="Default select example" [(ngModel)]="alimentacion.capacidadCarga" (change)="capturar()" [ngModelOptions]="{standalone: true}"
+                  required>
+                  <option disabled selected></option>
+                  <option *ngFor="let dato1 of datos1">
+                    {{dato1}}
+                  </option>
+                </select>
+              </div> -->
+              <div class="mb-3 input-group" *ngIf="formulario == 1">
+                <label class="form-label">Precio:&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input type="number" class="form-control" [(ngModel)]="menaje.precio" placeholder="" name="precio" required
+                min="1" max="99999" #prod21="ngModel" [ngClass]="{
+              'is-invalid': prod21.invalid && (prod21.dirty || prod21.touched),
+              'is-valid': ! prod21.invalid
+            }" /><span class="input-group-text">€</span>
+              <div class="text-danger" *ngIf="prod21.invalid && (prod21.dirty || prod21.touched)">
+                <div *ngIf="prod21.errors?.['min']"> El precio debe ser mayor de 0</div>
+              </div>
+              </div>
+              <div class="mb-3" *ngIf="formulario == 2">
+                <label class="form-label">Descripcion:</label>
+                <input type="text" aria-label="Default select example" class="form-control" placeholder="p.e., platos" name="descripcionMenaje" minlength="3"
+                  maxlength="20" [(ngModel)]="menaje.descripcion" required>
+              </div>
+
+              <div class="mb-3 input-group" *ngIf="formulario == 2">
+                <label
+                  class="form-label">Tipo de producto:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <select class="form-control"[(ngModel)]="menaje.Tipo" (change)="capturar()"
+                  [ngModelOptions]="{standalone: true}" aria-label="Default select required" required>
+                  <option disabled selected></option>
+                  <option *ngFor="let dato of datos">
+                    {{dato}}
+                  </option>
+                </select>
+              </div>
+              <div class="mb-3 input-group" *ngIf="formulario == 2">
+                <label class="form-label">Tipo de menaje:&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <select class="form-control" aria-label="Default select example" [(ngModel)]="menaje.reciclable" (change)="capturar()" [ngModelOptions]="{standalone: true}"
+                  required>
+                  <option disabled selected></option>
+                  <option *ngFor="let dato2 of datos2">
+                    {{dato2}}
+                  </option>
+                </select>
+              </div>
+              <div class="mb-3 input-group" *ngIf="formulario == 2">
+                <label class="form-label">Precio:&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input type="number" class="form-control" [(ngModel)]="menaje.precio" placeholder="" name="precio"
+                  required min="0" max="99999" #prod21="ngModel" [ngClass]="{
+              'is-invalid': prod21.invalid && (prod21.dirty || prod21.touched),
+              'is-valid': ! prod21.invalid
+            }" /><span class="input-group-text">€</span>
+                <div class="text-danger" *ngIf="prod21.invalid && (prod21.dirty || prod21.touched)">
+                  <div *ngIf="prod21.errors?.['min']"> El precio no puede ser negativo</div>
+                </div>
+                <div class="valid-feedback">Ok</div>
+              </div>
+          </form>
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-2" *ngIf="formulario == 1 ">
+          <button id="guardarAlimentacion" type="submit" class="btn btn-primary" (click)="onAddAlimentacion()"
+            [disabled]="!nuevoProducto.form.valid" >Guardar</button>
+        </div>
+        <div class="col-2" *ngIf="formulario == 2 ">
+          <button id="guardarMenaje" type="submit" class="btn btn-primary" (click)="onAddMenaje()"
+            [disabled]="!nuevoProducto.form.valid">Guardar</button>
+        </div>
+        <div class="col-2" *ngIf="formulario == 1 || formulario == 2">
+          <a routerLink="/catalogos"><button id="cancelar" type="button" class="btn btn-danger">Cancelar</button></a>
+        </div>
+      </div>
+      </div>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    </main>
+  </body>

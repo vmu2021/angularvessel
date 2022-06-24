@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-
 import { AlimentacionImpl } from '../models/alimentacion-impl';
 import { MenajeImpl } from '../models/menaje-impl';
+
 import { ProductoService } from '../service/producto.service';
 
 @Component({
-  selector: 'app-productos',
-  templateUrl: './productos.component.html',
-  styleUrls: ['./productos.component.css']
+  selector: 'app-productos-consulta',
+  templateUrl: './productos-consulta.component.html',
+  styleUrls: ['./productos-consulta.component.css']
 })
-export class ProductosComponent implements OnInit {
+export class ProductosConsultaComponent implements OnInit {
 
-  alimentaciones: AlimentacionImpl[] = [];
+  alimentos: AlimentacionImpl[] = [];
   menajes: MenajeImpl[] = [];
-  alimentacionVerDatos: AlimentacionImpl = new AlimentacionImpl();
+  alimentoVerDatos: AlimentacionImpl = new AlimentacionImpl();
   menajeVerDatos: MenajeImpl = new MenajeImpl();
 
   constructor(private activatedRoute: ActivatedRoute,
@@ -24,18 +24,18 @@ export class ProductosComponent implements OnInit {
   ngOnInit(): void {
     let id: string = this.activatedRoute.snapshot.params['id'];
   this.productoService.getProductosCatalogados(id).subscribe((res) =>
-  this.alimentaciones= this.productoService.extraerAlimentaciones(res));
+  this.alimentos= this.productoService.extraerAlimentaciones(res));
   this.productoService.getProductosCatalogados(id).subscribe((res) =>
   this.menajes = this.productoService.extraerMenajes(res));
   }
 
-  onAlimentacionEliminar(alimentacion: AlimentacionImpl){
-    this.productoService.deleteAlimentaciones(alimentacion.idProducto).subscribe();
+  onAlimentacionEliminar(alimento: AlimentacionImpl){
+    this.productoService.deleteAlimentaciones(alimento.idProducto).subscribe();
   }
 
-  onAlimentacionEditar(alimentacion: AlimentacionImpl){
-    this.alimentacionVerDatos = alimentacion;
-    let url = `catalogos/alimentaciones/editar/${alimentacion.idProducto}`;
+  onAlimentacionEditar(alimento: AlimentacionImpl){
+    this.alimentoVerDatos = alimento;
+    let url = `catalogos/alimentaciones/editar/${alimento.idProducto}`;
     this.router.navigate([url])
   }
 

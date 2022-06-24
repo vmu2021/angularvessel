@@ -1,0 +1,24 @@
+<main>
+    <div class="container mt-auto">
+
+      <h3>Productos</h3>
+
+      <div *ngFor="let alimentacion of alimentaciones">
+        <app-alimentacion-consulta [alimentacion]="alimentacion"
+        (alimentacionConsultar)="onAlimentacionConsultar($event)">
+        </app-alimentacion-consulta>
+
+        <pre>{{ alimentacion | json }}</pre>
+
+      </div>
+
+      <div *ngFor="let menaje of menajes">
+        <app-menaje-consulta [menaje]="menaje"
+        (menajeConsultar)="onMenajeConsultar($event)">
+        </app-menaje-consulta>
+
+        <pre>{{ menaje | json }}</pre>
+
+      </div>
+    </div>
+  </main>
