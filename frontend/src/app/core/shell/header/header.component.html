@@ -1,13 +1,11 @@
-<nav
-  class="navbar navbar-expand-lg navbar-dark bg-dark align-items-center fixed-top"
->
+<nav class="navbar d-flex p-2 navbar-dark bg-dark align-items-center fixed-top">
   <a class="navbar-brand" routerLink="/"
     ><img class="logo" /><span class="sr-only"></span
   ></a>
-  <button
+  <!-- <button
     class="navbar-toggler"
     type="button"
-    data-toggle="collapse"
+    data-toggle="d-flex p-2"
     data-target="#ejercicioProto"
     aria-controls="navbarSupportedContent"
     aria-controls="ejercicioProto"
@@ -15,11 +13,10 @@
     aria-label="Toggle navigation"
   >
     <span class="navbar-toggler-icon"></span>
-  </button>
-  <p>
-    <font color="white"> VESSEL LOGISTICS </font>
-  </p>
-  <div class="collapse navbar-collapse" id="vesselog">
+  </button> -->
+  <i class="fa fa-align-center" aria-hidden="true"></i>
+  <div class="titulo">VESSEL-LOGISTICS</div>
+  <div class="d-flex p-2" id="vesselog">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item dropdown pt-3" routerlinkactive="router-link-active">
         <a
@@ -36,12 +33,14 @@
           <a class="dropdown-item text-warning" routerLink="catalogos">
             Listado Catalogos</a
           >
-          <a class="dropdown-item text-warning" routerLink="formulario-catalogo">Crear Catalogo</a>
+          <a class="dropdown-item text-warning" routerLink="formulario-catalogo"
+            >Crear Catalogo</a
+          >
         </div>
       </li>
     </ul>
   </div>
-  <div class="collapse navbar-collapse" id="ejercicioProto">
+  <div class="d-flex p-2" id="ejercicioProto">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item dropdown pt-3" routerlinkactive="router-link-active">
         <a

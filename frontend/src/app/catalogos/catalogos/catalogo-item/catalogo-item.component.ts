@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { faPencilAlt, faBook, faTrashCan, faEraser, faAdd } from '@fortawesome/free-solid-svg-icons';
+import { faPencilAlt, faBook, faTrashCan, faEraser, faAdd, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { Catalogo } from '../../models/catalogo';
 import { CatalogoImpl } from '../../models/catalogo-impl';
 
@@ -53,6 +53,7 @@ export class CatalogoItemComponent implements OnInit {
   trash=faTrashCan;
   eraser= faEraser;
   plus=faAdd;
+  consulta=faMagnifyingGlass;
 
 
 
