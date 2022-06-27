@@ -4,24 +4,26 @@ import { NotFoundComponent } from './core/not-found/not-found.component';
 
 const routes: Routes = [
   {
-  path: '',
-  loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
+    path: '',
+    loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
   },
   {
-  path: "not-found" , component: NotFoundComponent
+    path: 'not-found',
+    component: NotFoundComponent,
   },
   {
     path: 'catalogos',
-    loadChildren: () => import("./catalogos/catalogos.module").then((m) => m.CatalogosModule)
+    loadChildren: () =>
+      import('./catalogos/catalogos.module').then((m) => m.CatalogosModule),
   },
   {
-  path: "**" ,
-  redirectTo: "not-found"
+    path: '**',
+    redirectTo: 'not-found',
   },
-  ];
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

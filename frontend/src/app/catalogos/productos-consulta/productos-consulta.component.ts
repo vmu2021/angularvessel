@@ -29,24 +29,43 @@ export class ProductosConsultaComponent implements OnInit {
   this.menajes = this.productoService.extraerMenajes(res));
   }
 
-  onAlimentacionEliminar(alimento: AlimentacionImpl){
-    this.productoService.deleteAlimentaciones(alimento.idProducto).subscribe();
-  }
+  // onAlimentacionEliminar(alimento: AlimentacionImpl){
+  //   this.productoService.deleteAlimentaciones(alimento.idProducto).subscribe();
+  // }
 
-  onAlimentacionEditar(alimento: AlimentacionImpl){
-    this.alimentoVerDatos = alimento;
-    let url = `catalogos/alimentaciones/editar/${alimento.idProducto}`;
+  // onAlimentacionEditar(alimento: AlimentacionImpl){
+  //   this.alimentoVerDatos = alimento;
+  //   let url = `catalogos/alimentaciones/editar/${alimento.idProducto}`;
+  //   this.router.navigate([url])
+  // }
+
+  // onMenajeEliminar(menaje: MenajeImpl){
+  //   this.productoService.deleteMenaje(menaje.idProducto).subscribe();
+  // }
+
+  // onMenajeEditar(menaje: MenajeImpl){
+  //   this.menajeVerDatos = menaje;
+  //   let url = `catalogos/menajes/editar/${menaje.idProducto}`;
+  //   this.router.navigate([url])
+  // }
+  onAlimentacionConsultar(alimentacion: AlimentacionImpl){
+    this.verDatosAlimentacion(alimentacion);
+    let url = `catalogos/alimentaciones/consultar/${alimentacion.idProducto}`;
     this.router.navigate([url])
   }
 
-  onMenajeEliminar(menaje: MenajeImpl){
-    this.productoService.deleteMenaje(menaje.idProducto).subscribe();
+  verDatosAlimentacion(alimentacion: AlimentacionImpl): void {
+    this.alimentoVerDatos = alimentacion;
   }
 
-  onMenajeEditar(menaje: MenajeImpl){
+  onMenajeConsultar(menaje: MenajeImpl){
+    this.verDatosMenaje(menaje);
+    let url = `catalogos/menajes/consultar/${menaje.idProducto}`;
+    this.router.navigate([url])
+  }
+
+  verDatosMenaje(menaje: MenajeImpl): void {
     this.menajeVerDatos = menaje;
-    let url = `catalogos/menajes/editar/${menaje.idProducto}`;
-    this.router.navigate([url])
   }
 
 }

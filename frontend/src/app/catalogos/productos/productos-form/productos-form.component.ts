@@ -36,8 +36,8 @@ export class ProductosFormComponent implements OnInit {
       private productoService: ProductoService,
       private router: Router,
       private activatedRoute: ActivatedRoute) { this.datos=['Alimentación', 'Menaje'];
-      this.datos1=['refrigerado','NO refrigerado']
-    this.datos2=['reciclado','NO reciclado']}
+      this.datos1=['refrigerado', 'NO refrigerado']
+    this.datos2=['reciclado', 'NO reciclado']}
 
   ngOnInit(): void {
     let id: string = this.cargarCatalogo();

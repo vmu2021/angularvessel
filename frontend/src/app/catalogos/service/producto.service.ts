@@ -5,14 +5,13 @@ import { environment } from 'src/environments/environment';
 import { AlimentacionImpl } from '../models/alimentacion-impl';
 import { MenajeImpl } from '../models/menaje-impl';
 
-
 @Injectable({
   providedIn: 'root',
 })
 export class ProductoService {
   private host: string = environment.host;
   private urlEndPoint: string = `${this.host}catalogos`;
-  private urlEndPointAli: string = `${this.host}alimentaciones`;
+  private urlEndPointAli: string = `${this.host}alimentos`;
   private urlEndPointMen: string = `${this.host}menajes`;
 
   constructor(private http: HttpClient) {}
@@ -34,24 +33,24 @@ export class ProductoService {
   mapearAlimentaciones(alimentoApi: any): AlimentacionImpl {
     let alimentoNuevo: AlimentacionImpl = new AlimentacionImpl();
 
-    // alimentoNuevo.catalogo=alimentoApi._links.catalogo.href;
-    alimentoNuevo.descripcion = alimentoApi.marca;
+    alimentoNuevo.catalogo=alimentoApi._links.catalogo.href;
+    alimentoNuevo.descripcion = alimentoApi.descripcion;
     alimentoNuevo.precio = alimentoApi.precio;
     alimentoNuevo.refrigerable = alimentoApi.refrigerable;
-    // alimentoNuevo.urlProducto=alimentoApi._links.self.href;
+    alimentoNuevo.urlProducto=alimentoApi._links.self.href;
     alimentoNuevo.idProducto = this.getId(
-      alimentoApi._links.alimentaciones.href
+      alimentoApi._links.self.href
     );
     return alimentoNuevo;
   }
 
   extraerAlimentaciones(respuestaApi: any): AlimentacionImpl[] {
     const alimentaciones: AlimentacionImpl[] = [];
-    let respuesta: any = respuestaApi._embedded.alimentaciones;
+    let respuesta: any = respuestaApi._embedded.alimentos;
     if (respuesta === undefined) {
       console.info('No existen alimentos en este catalogo');
     } else {
-      respuestaApi._embedded.alimentaciones.forEach((p: any) => {
+      respuestaApi._embedded.alimentos.forEach((p: any) => {
         alimentaciones.push(this.mapearAlimentaciones(p));
       });
     }
@@ -123,10 +122,11 @@ export class ProductoService {
   mapearMenajes(menajeApi: any): MenajeImpl {
     let menajeNuevo = new MenajeImpl();
 
-    menajeNuevo.descripcion = menajeApi.calificacionEnergetica;
+    menajeNuevo.descripcion = menajeApi.descripcion;
     menajeNuevo.precio = menajeApi.precio;
     menajeNuevo.reciclable = menajeApi.reciclable;
-    menajeNuevo.idProducto = this.getId(menajeApi._links.menaje.href);
+    menajeNuevo.urlProducto=menajeApi._links.self.href;
+    menajeNuevo.idProducto = this.getId(menajeApi.urlProducto);
     return menajeNuevo;
   }
 

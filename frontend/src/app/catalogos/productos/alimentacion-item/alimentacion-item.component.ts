@@ -32,7 +32,7 @@ borrarAlimentacion(): void {
 }
 
 //patch
-modifiarAlimentacion(): void {
+modificarAlimentacion(): void {
   this.alimentacionEditar.emit(this.alimentacion);
 }
 

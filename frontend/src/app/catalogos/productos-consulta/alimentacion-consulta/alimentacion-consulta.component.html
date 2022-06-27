@@ -1,17 +1,20 @@
 <main>
-    <div class="container mt-auto">
-  
-        <div class="row justify-content-center">
-            <div class="col-5">
-                <input type="text" class="form-control" [(ngModel)]="alimentacion.descripcion" readonly>
-            </div>
-            <div class="col-1">
-                <a>
-                    <fa-icon [icon]="lupa" class="fa-2x" (click)="consultar()"></fa-icon>
-                </a>
-            </div>
-        </div>
-        <!-- <pre>{{ alimentacion | json }}</pre> -->
+  <div class="container mt-auto">
+    <div class="row justify-content-center">
+      <div class="col-5">
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="alimentacion.descripcion"
+          readonly
+        />
+      </div>
+      <div class="col-1">
+        <a>
+          <fa-icon [icon]="lupa" class="fa-2x" (click)="consultar()"></fa-icon>
+        </a>
+      </div>
     </div>
-  </main>
-  
+    <!-- <pre>{{ alimentacion | json }}</pre> -->
+  </div>
+</main>

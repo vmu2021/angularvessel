@@ -17,7 +17,7 @@ import { MenajeConsultaComponent } from './productos-consulta/menaje-consulta/me
 import { MenajeConsultaFormComponent } from './productos-consulta/menaje-consulta-form/menaje-consulta-form.component';
 import { ProductosConsultaComponent } from './productos-consulta/productos-consulta.component';
 import { ProductosFormComponent } from './productos/productos-form/productos-form.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { CatalogoItemComponent } from './catalogos/catalogo-item/catalogo-item.component';
 
@@ -45,7 +45,7 @@ import { CatalogoItemComponent } from './catalogos/catalogo-item/catalogo-item.c
   imports: [
     CommonModule,
     CatalogosRoutingModule,
-    FormsModule, FontAwesomeModule
+    FormsModule, FontAwesomeModule,ReactiveFormsModule
 
   ],
 

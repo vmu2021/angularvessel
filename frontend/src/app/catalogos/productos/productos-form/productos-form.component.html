@@ -1,6 +1,6 @@
 <body class="d-flex flex-column min-vh-100">
     <main>
-      <br><br><br><br><br>
+      
       <div class="container mt-auto">
         <div class="row justify-content-center">
           <div class="col-8">
@@ -19,18 +19,18 @@
 
               <div class="mb-3" *ngIf="formulario == 1">
                 <label class="form-label">Descripcion:</label>
-                <input type="text" class="form-control" placeholder="p.e., tomtate" name="descripcion" minlength="3" maxlength="20"
+                <input type="text" class="form-control" placeholder="p.e., tomate" name="descripcion" minlength="3" maxlength="20"
                   [(ngModel)]="alimentacion.descripcion" aria-label="Default select example" required>
               </div>
 
               <div class="mb-3 input-group" *ngIf="formulario == 1">
                 <label
-                  class="form-label">Tipo de producto:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  class="form-label">¿Refrigerable?:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                 <select [(ngModel)]="alimentacion.refrigerable" (change)="capturar()"
                   [ngModelOptions]="{standalone: true}" aria-label="Default select example" required>
                   <option disabled selected></option>
-                  <option *ngFor="let dato of datos">
+                  <option *ngFor="let dato of datos1">
                     {{dato}}
                   </option>
                 </select>
@@ -89,6 +89,7 @@
           </form>
         </div>
       </div>
+      
       <div class="row justify-content-center">
         <div class="col-2" *ngIf="formulario == 1 ">
           <button id="guardarAlimentacion" type="submit" class="btn btn-primary" (click)="onAddAlimentacion()"

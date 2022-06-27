@@ -1,7 +1,9 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { faPencilAlt, faBook, faTrashCan, faEraser, faAdd, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { Catalogo } from '../../models/catalogo';
 import { CatalogoImpl } from '../../models/catalogo-impl';
+import { CatalogoService } from '../../service/catalogo.service';
 
 @Component({
   selector: 'app-catalogo-item',
@@ -25,8 +27,8 @@ export class CatalogoItemComponent implements OnInit {
   @Output()
   catalogoEliminar = new EventEmitter<CatalogoImpl>();
 
-  constructor() { }
-
+  constructor(private catalogoService: CatalogoService,
+    private router: Router) { }
   ngOnInit(): void {
   }
 
@@ -45,6 +47,8 @@ export class CatalogoItemComponent implements OnInit {
 
   editar(): void{
     this.catalogoEditar.emit(this.catalogo);
+    
+
   }
 
 

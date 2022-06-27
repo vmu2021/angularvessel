@@ -1,0 +1,30 @@
+#general{
+
+    background-color:rgb(255, 255, 255);
+  
+    align-items: center;
+  
+  }
+  
+  #cadaCatalogo{
+    background-color:rgb(255, 255, 255);
+  
+    align-items: center;
+  }
+  .col-sm-3{
+    text-align: center;
+  }
+  h2 {
+    margin-top: 10%;
+    margin-bottom: 5%;
+  color: rgb(0, 0, 0);
+    font-size: 36px;
+  }
+  
+  p {
+    font-size: 24px;
+  }
+  .row{
+    text-align: center;
+  }
+  

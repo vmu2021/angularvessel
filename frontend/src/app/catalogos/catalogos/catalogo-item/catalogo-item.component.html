@@ -1,18 +1,46 @@
 <main>
   <div class="container mt-auto">
+    <div class="row justify-content-center">
+      <div class="col-5">
+        <a>
+          <li
+            class="list-group-item"
+            (click)="editar()"
+            routerLink="consultar()"
+          >
+            {{ catalogo.descripcion }}
+          </li>
+        </a>
+      </div>
+      <div class="col-2">
+        <a>
+          <fa-icon [icon]="pencil" class="fa-2x" (click)="editar()"></fa-icon
+          >&nbsp;<span></span>
+          &nbsp;
+        </a>
+        <a>
+          <fa-icon [icon]="trash" class="fa-2x" (click)="eliminar()"></fa-icon
+          >&nbsp;<span></span>
+          &nbsp;
+        </a>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- <main>
+  <div class="container mt-auto">
 
     <div class="row justify-content-center">
        <div class="col-5">
         <a>
-        <li class="list-group-item" (click)="editar()">{{catalogo.descripcion}}</li>
+        <li class="list-group-item" (click)="editar()">{{ catalogo.descripcion|uppercase}}</li>
         </a>
-      </div> <div class="col-2">
-        <a>
-           <fa-icon [icon]="consulta" class="fa-2x" (click)="editar()"></fa-icon>&nbsp;<span></span>
-           &nbsp;
-         </a>
-    </div>
-  </div>
+      </div>
 
-</div>
-</main>
+      <div class="col-1">
+      </div>
+    </div>
+
+  </div>
+</main> -->

@@ -1,11 +1,11 @@
 <main>
     <div class="container mt-auto">
 
-      <h3>Productos</h3>
+      <h3 id=anadirproducto>Productos</h3>
 
       <div *ngFor="let alimento of alimentos">
         <app-alimentacion-consulta [alimentacion]="alimento"
-        (alimentacionConsultar)="onAlimentacionEditar($event)">
+        (alimentacionConsultar)="onAlimentacionConsultar($event)">
         </app-alimentacion-consulta>
 
         <pre>{{alimento| json }}</pre>
@@ -14,7 +14,7 @@
 
       <div *ngFor="let menaje of menajes">
         <app-menaje-consulta [menaje]="menaje"
-        (menajeConsultar)="onMenajeEditar($event)">
+        (menajeConsultar)="onMenajeConsultar($event)">
         </app-menaje-consulta>
 
         <pre>{{ menaje | json }}</pre>

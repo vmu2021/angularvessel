@@ -1,1 +1,30 @@
-<p>alimentacion-item works!</p>
+<main>
+    <div class="container mt-auto">
+    <div class="row mb-2 justify-content-center">
+      <hr class='w-100'>
+  
+      <div class="col-sm-5">
+        <li class="list-group-item">
+        Alimentacion &nbsp;&nbsp;  {{alimentacion.descripcion}}, {{alimentacion.refrigerable}} {{alimentacion.precio}}€
+          <!-- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a>
+            <fa-icon [icon]="trash" class="fa-2x" (click)="borrarLavadora()"></fa-icon>
+            &nbsp;
+          </a>
+          <a>
+           <fa-icon [icon]="pencil"class="fa-2x" (click)="modificarLavadora()"></fa-icon>&nbsp;
+          </a> -->
+        </li>
+      </div>
+      <div class="col-sm-3">
+       <a>
+          <fa-icon [icon]="trash" class="fa-2x" (click)="borrarAlimentacion()"></fa-icon>
+          &nbsp;
+        </a>
+        <a>
+         <fa-icon [icon]="pencil"class="fa-2x" (click)="modificarAlimentacion()"></fa-icon>&nbsp;
+        </a>
+      </div>
+      </div>
+    </div>
+    </main>
+  

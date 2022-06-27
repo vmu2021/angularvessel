@@ -1,13 +1,18 @@
-
 <main>
-    <br><br><br><br><br><br><br><br>
-  
+  <br /><br /><br /><br /><br /><br /><br /><br />
+
   <section id="datosAlimentacion" *ngIf="[menaje]">
     <div class="form-row py-2">
       <label>Descripcion<sup class="text-danger">*</sup></label>
-      <input type="text" class="form-control" [(ngModel)]="menaje.descripcion" placeholder="Por ejemplo, plato"
-      name="prod"
-      required  maxlength="15"/>
+      <input
+        type="text"
+        class="form-control"
+        [(ngModel)]="menaje.descripcion"
+        placeholder="Por ejemplo, plato"
+        name="prod"
+        required
+        maxlength="15"
+      />
       <div class="invalid-feedback">Introduzca una descripcion</div>
       <div class="valid-feedback">Ok</div>
     </div>
@@ -22,14 +27,18 @@
       <div class="invalid-feedback">Por favor, rellene este campo.</div>
       <div class="valid-feedback">ok</div>
     </div> -->
-      <div class="form-row py-2">
+    <div class="form-row py-2">
       <label>Tipo de menaje<sup class="text-danger">*</sup></label>
-      <select [(ngModel)]="menaje.reciclable" (change)="capturar()"  [ngModelOptions]="{standalone: true}">
+      <select
+        [(ngModel)]="menaje.reciclable"
+        (change)="capturar()"
+        [ngModelOptions]="{ standalone: true }"
+      >
         <option value="0">Selecciona una opción</option>
         <option *ngFor="let dato of datos">
-          {{dato}}
+          {{ dato }}
         </option>
-    </select>
+      </select>
     </div>
     <!-- <div class="form-row py-2">
       <label>Tamaño de la Pantalla<sup class="text-danger">*</sup></label>
@@ -43,31 +52,55 @@
       <div class="valid-feedback">Ok</div>
     </div> -->
     <div class="form-row py-2">
-      <label>Precio<sup class="text-danger">*</sup></label>
-      <input type="number" class="form-control" [(ngModel)]="menaje.precio" placeholder="" name="precio" required
-        min="1" max="99999" #prod21="ngModel" [ngClass]="{
-      'is-invalid': prod21.invalid && (prod21.dirty || prod21.touched),
-      'is-valid': ! prod21.invalid
-    }" /><span class="input-group-text">€</span>
-      <div class="text-danger" *ngIf="prod21.invalid && (prod21.dirty || prod21.touched)">
-        <div *ngIf="prod21.errors?.['min']"> El precio no puede ser negativo</div>
+      <label>Precio(€)<sup class="text-danger">*</sup></label>
+      <input
+        type="number"
+        class="form-control"
+        [(ngModel)]="menaje.precio"
+        placeholder=""
+        name="precio"
+        required
+        min="1"
+        max="99999"
+        #prod21="ngModel"
+        [ngClass]="{
+          'is-invalid': prod21.invalid && (prod21.dirty || prod21.touched),
+          'is-valid': !prod21.invalid
+        }"
+      />
+      <div
+        class="text-danger"
+        *ngIf="prod21.invalid && (prod21.dirty || prod21.touched)"
+      >
+        <div *ngIf="prod21.errors?.['min']">
+          El precio no puede ser negativo
+        </div>
       </div>
       <div class="valid-feedback">Ok</div>
     </div>
     <div class="row justify-content-center">
-  
       <div class="col-2">
-        <button id="guardar" type="submit" class="btn btn-primary" (click)="onEditarMenaje()" [disabled]="true"
-          routerLink="/catalogos">Guardar</button>
+        <button
+          id="guardar"
+          type="submit"
+          class="btn btn-primary"
+          (click)="onEditarMenaje()"
+          [disabled]="true"
+          routerLink="/almacenes"
+        >
+          Guardar
+        </button>
       </div>
-  
+
       <div class="col-2">
-        <a routerLink="/catalogos"><button id="cancelar" type="button" class="btn btn-danger">Cancelar</button></a>
+        <a routerLink="/catalogos"
+          ><button id="cancelar" type="button" class="btn btn-danger">
+            Cancelar
+          </button></a
+        >
       </div>
-  
     </div>
-    <br>
+    <br />
   </section>
-  <br><br><br><br><br>
-      </main>
-  
+  <br /><br /><br /><br /><br />
+</main>
