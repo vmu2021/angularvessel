@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { faEraser, faPencil, faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { faDroplet, faEraser, faPencil, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { AlimentacionImpl } from '../../models/alimentacion-impl';
 import { Catalogo } from '../../models/catalogo';
 
@@ -35,9 +35,17 @@ borrarAlimentacion(): void {
 modificarAlimentacion(): void {
   this.alimentacionEditar.emit(this.alimentacion);
 }
+esRefrigerable(alimentacion: AlimentacionImpl){
+let iconoRefrigerado;
+  if (alimentacion.refrigerable == true) {
+  iconoRefrigerado = faDroplet;
+} else{alimentacion.refrigerable == false} 
+return iconoRefrigerado;
+}
 
-pencil = faPencil;
-trash = faTrashCan;
+  iconoRefrigerado = faDroplet;
+  pencil = faPencil;
+  trash = faTrashCan;
 eraser=faEraser;
 
 }

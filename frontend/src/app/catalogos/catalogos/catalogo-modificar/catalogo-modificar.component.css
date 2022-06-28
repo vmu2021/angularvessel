@@ -11,11 +11,26 @@ h2{
   
   }
   #nuevoProducto{
-    background-color: rgb(48, 48, 48);
+    background-color: yellow;
     font-size: small;
+    color: black;
+    font-weight: 400;
   }
   
   #cancelar{
+    background-color: black;
     font-size: small;
+    color: white;
+    font-weight: 400;
+    padding-:left 2em;
   }
   
+  #volver{
+    background-color: black;
+    font-size: small;
+    color: white;
+    font-weight: 400;
+  }
+  .box{
+    display: flex;
+  }

@@ -5,26 +5,32 @@
   
       <div class="col-sm-5">
         <li class="list-group-item">
-        Alimentacion &nbsp;&nbsp;  {{alimentacion.descripcion}}, {{alimentacion.refrigerable}} {{alimentacion.precio}}€
+          Alimentacion {{alimentacion.descripcion}},{{alimentacion.refrigerable}} {{alimentacion.precio}}€
           <!-- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a>
             <fa-icon [icon]="trash" class="fa-2x" (click)="borrarLavadora()"></fa-icon>
             &nbsp;
           </a>
           <a>
-           <fa-icon [icon]="pencil"class="fa-2x" (click)="modificarLavadora()"></fa-icon>&nbsp;
+            <fa-icon [icon]="pencil"class="fa-2x" (click)="modificarLavadora()"></fa-icon>&nbsp;
           </a> -->
         </li>
       </div>
-      <div class="col-sm-3">
-       <a>
-          <fa-icon [icon]="trash" class="fa-2x" (click)="borrarAlimentacion()"></fa-icon>
+      <div class="box">
+      <div class="col-12">
+        <a>
+          <fa-icon [icon]="iconoRefrigerado" class="fa-2x" style= "color: blue" (click)="borrarAlimentacion()"></fa-icon>
           &nbsp;
         </a>
         <a>
-         <fa-icon [icon]="pencil"class="fa-2x" (click)="modificarAlimentacion()"></fa-icon>&nbsp;
+         <fa-icon [icon]="pencil" class="fa-2x" color (click)="modificarAlimentacion()"></fa-icon>&nbsp;
+        </a>
+        <a>
+          <fa-icon [icon]="trash" class="fa-2x" (click)="borrarAlimentacion()"></fa-icon>
+          &nbsp;
         </a>
       </div>
       </div>
+    </div>
     </div>
     </main>
   

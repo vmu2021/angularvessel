@@ -18,7 +18,7 @@ main > .container {
   main h2 {
     margin-top: 30px;
     margin-bottom: 30px;
-    font-size: 48px;
+    font-size: 2em;
     color:rgb(16, 16, 15);
   }
   
@@ -28,11 +28,25 @@ main > .container {
   
   }
   
-  #guardarAlimentacion,
-  #guardarMenaje,
+  #guardarAlimentacion{
+      background-color: yellow;
+      font-size: medium;
+      color: black;
+      font-weight: 400;
+    }
+  
+  #guardarMenaje{
+    background-color: yellow;
+      font-size: medium;
+      color: black;
+      font-weight: 400;
+
+  }
   #cancelar {
-    margin-top: 30px;
-    margin-bottom: 30px;
+    background-color: black;
+      font-size: medium;
+      color: yellow;
+      font-weight: 400;
   }
   
   #tipoproducto{
@@ -42,3 +56,11 @@ main > .container {
   label{
     color:rgb(24, 24, 23);
   }
+
+  h2{
+      background-color: yellow;
+      font-size: small;
+      color: black;
+      font-weight: 400;
+    }
+  

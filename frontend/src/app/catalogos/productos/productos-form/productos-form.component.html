@@ -89,14 +89,15 @@
           </form>
         </div>
       </div>
-      
+    </div>
+    <div class="container-fluid">
       <div class="row justify-content-center">
         <div class="col-2" *ngIf="formulario == 1 ">
           <button id="guardarAlimentacion" type="submit" class="btn btn-primary" (click)="onAddAlimentacion()"
             [disabled]="!nuevoProducto.form.valid" >Guardar</button>
         </div>
         <div class="col-2" *ngIf="formulario == 2 ">
-          <button id="guardarMenaje" type="submit" class="btn btn-primary" (click)="onAddMenaje()"
+          <button id="guardarMenaje" type="submit" class="btn-primary" (click)="onAddMenaje()"
             [disabled]="!nuevoProducto.form.valid">Guardar</button>
         </div>
         <div class="col-2" *ngIf="formulario == 1 || formulario == 2">

@@ -1,4 +1,4 @@
-<body class="d-flex flex-column min-vh-100">
+<!-- <body class="d-flex flex-column min-vh-100">
     <main>
       <div class="container mt-auto" id="catalogoForm">
   
@@ -59,4 +59,27 @@
       <br><br><br><br><br><br><br><br><br><br><br>
     </main>
   </body>
-  
+   -->
+
+   <!-- MANDA A ASOCIACION.COMPONENT.HTML -->
+<form #asociacionForm="ngForm">
+  <div class="row">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+      <section>
+        <div class="form-row py-2">
+          <label>Nombre de la asociación<sup class="text-danger">*</sup></label>
+          <input type="text" class="form-control" [(ngModel)]="catalogo.descripcion" placeholder="Por ejemplo ASOCIACIÓN DE GAFAS" name="neg"
+            required minlength="5" maxlength="25"/>
+          <div class="invalid-feedback">Por favor, rellene este campo.</div>
+          <div class="valid-feedback">¡Perfecto! ¡Ese es un nombre válido!</div>
+        </div>
+      </section>
+    </div>
+    <div class="form-row justify-content-between pt-5">
+      <button class="btn btn-primary" style="background-color: black" role="button" (click)="create()" routerLink='/catalogos' [disabled]="!asociacionForm.valid">
+        Crear Catalogo
+      </button>
+    </div>
+  </div>
+</form>

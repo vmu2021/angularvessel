@@ -17,8 +17,10 @@
   h2 {
     margin-top: 10%;
     margin-bottom: 5%;
-  color: rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
     font-size: 36px;
+    text-align: center;
+    justify-content: center;
   }
   
   p {

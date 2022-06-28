@@ -2,4 +2,6 @@ fa-icon{
     color:black;
     padding-left: 10%;
   }
-  
+.box{
+  display: flex;
+}

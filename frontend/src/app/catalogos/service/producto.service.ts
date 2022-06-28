@@ -34,7 +34,7 @@ export class ProductoService {
     let alimentoNuevo: AlimentacionImpl = new AlimentacionImpl();
 
     alimentoNuevo.catalogo=alimentoApi._links.catalogo.href;
-    alimentoNuevo.descripcion = alimentoApi.descripcion;
+    alimentoNuevo.descripcion = alimentoApi.descripcionProducto;
     alimentoNuevo.precio = alimentoApi.precio;
     alimentoNuevo.refrigerable = alimentoApi.refrigerable;
     alimentoNuevo.urlProducto=alimentoApi._links.self.href;

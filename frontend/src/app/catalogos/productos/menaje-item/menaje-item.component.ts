@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { faEraser, faPencil, faTrashCan } from '@fortawesome/free-solid-svg-icons';
+import { faEraser, faPencil, faRecycle, faTrashCan } from '@fortawesome/free-solid-svg-icons';
 import { MenajeImpl } from 'src/app/catalogos/models/menaje-impl';
 import { Catalogo } from '../../models/catalogo';
 
@@ -36,7 +36,7 @@ borrarMenaje(): void {
 modificarMenaje(): void {
   this.menajeEditar.emit(this.menaje);
 }
-
+reciclar = faRecycle;
 pencil = faPencil;
 trash = faTrashCan;
 eraser=faEraser;

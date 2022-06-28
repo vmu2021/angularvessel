@@ -1,34 +1,34 @@
 <body class="d-flex flex-column min-vh-100">
-    <main>
-        <div class="container mt-auto">
-  
-            <h2>Catalogo: {{catalogo.descripcion|uppercase}}</h2>
-  
-            <div class="row justify-content-center">
-                <div class="col-8">
-                </div>
-            </div>
-            <div id="productos">
-                <app-productos></app-productos>
-            </div>
-            <div class="row justify-content-center">
-                <div class="col-2">
-                    <a (click)="onProductoCrear(catalogo)"><button id="nuevoProducto" role="button" class="btn btn-success">
-                        Añadir Producto</button></a>
-                </div>
-  
-                <div class="col-2">
-                    <a routerLink="/catalogos"><button id="cancelar" type="button" class="btn btn-danger">Cancelar</button></a>
-                </div>
-  
-  
-            </div>
-  
+  <main>
+    <div class="container mt-auto">
+      <h2>Catalogo: {{ catalogo.descripcion | uppercase }}</h2>
+
+      <div class="row justify-content-center">
+          <div class="col-8"></div>
         </div>
-        <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-  
-    </main>
-  </body>
-  
-  
-  
+        <div id="productos">
+            <app-productos></app-productos>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-2">
+              <div class="container-fluid">
+            <a (click)="onProductoCrear(catalogo)"
+              ><button id="nuevoProducto" role="button">
+                Añadir Producto
+              </button></a
+            >
+          </div>
+
+          <div class="col-2">
+            <a routerLink="/catalogos"
+              ><button id="volver" type="button">
+                Volver
+              </button></a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+  </main>
+</body>

@@ -1,25 +1,26 @@
-<main>
-  <div class="container mt-auto">
-    <div class="row justify-content-center">
-      <div class="col-5">
+<div class="container-fluid">
+  <main>
+    <div class="container mt-auto" id="contenedor">
+      <div class="row justify-content-center">
+      <div class="col-9">
         <a>
           <li
             class="list-group-item"
             (click)="editar()"
             routerLink="consultar()"
-          >
+            >
             {{ catalogo.descripcion }}
           </li>
         </a>
       </div>
-      <div class="col-2">
+      <div class="col-3">
         <a>
-          <fa-icon [icon]="pencil" class="fa-2x" (click)="editar()"></fa-icon
+          <fa-icon [icon]="pencil" class="fa-xs" (click)="editar()"></fa-icon
           >&nbsp;<span></span>
           &nbsp;
         </a>
         <a>
-          <fa-icon [icon]="trash" class="fa-2x" (click)="eliminar()"></fa-icon
+          <fa-icon [icon]="trash" class="fa-xs" (click)="eliminar()"></fa-icon
           >&nbsp;<span></span>
           &nbsp;
         </a>
@@ -27,18 +28,18 @@
     </div>
   </div>
 </main>
-
+</div>
 <!-- <main>
   <div class="container mt-auto">
-
+    
     <div class="row justify-content-center">
        <div class="col-5">
-        <a>
-        <li class="list-group-item" (click)="editar()">{{ catalogo.descripcion|uppercase}}</li>
-        </a>
-      </div>
+         <a>
+           <li class="list-group-item" (click)="editar()">{{ catalogo.descripcion|uppercase}}</li>
+          </a>
+        </div>
 
-      <div class="col-1">
+        <div class="col-1">
       </div>
     </div>
 

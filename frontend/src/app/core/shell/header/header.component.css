@@ -1,11 +1,18 @@
 .titulo{
     font: 2em sans-serif;
     color: white;
+    text-align: left;
     
 
 }
 
-#titulos{
-    font-size: 1.5em;
 
+.navbar {
+    width: 100%;
+    display: inline;
+    text-align: center;
+    margin-top: 0px;
+    top: 0;
+    position:relative;
+    display:block;
 }
