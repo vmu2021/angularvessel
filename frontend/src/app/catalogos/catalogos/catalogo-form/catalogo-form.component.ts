@@ -20,7 +20,9 @@ export class CatalogoFormComponent implements OnInit {
   }
 
   create(): void {
-    this.catalogoService.crearCatalogo(this.catalogo)
+    this.catalogoService.crearCatalogo(this.catalogo).subscribe();
+    this.router.navigate(['/catalogos']);
+
   }
 
 }

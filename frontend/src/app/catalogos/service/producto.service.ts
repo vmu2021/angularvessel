@@ -4,6 +4,7 @@ import { catchError, Observable, throwError } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { AlimentacionImpl } from '../models/alimentacion-impl';
 import { MenajeImpl } from '../models/menaje-impl';
+import { ProductoImpl } from '../models/producto-impl';
 
 @Injectable({
   providedIn: 'root',
@@ -13,6 +14,7 @@ export class ProductoService {
   private urlEndPoint: string = `${this.host}catalogos`;
   private urlEndPointAli: string = `${this.host}alimentos`;
   private urlEndPointMen: string = `${this.host}menajes`;
+  private urnlEndPointPro: string = `${this.host}productos`;
 
   constructor(private http: HttpClient) {}
 
@@ -70,6 +72,9 @@ export class ProductoService {
         return throwError(() => new Error(e));
       })
     );
+  }
+  postAlimentacion(alimento: AlimentacionImpl): Observable<any>{
+    return this.http.post(this.urlEndPoint, alimento);
   }
 
   //delete
