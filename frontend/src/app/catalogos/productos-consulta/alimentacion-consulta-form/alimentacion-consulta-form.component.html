@@ -6,7 +6,7 @@
           <h2>{{ alimentacion.descripcion }}</h2>
           <form class="was-validated">
             <div class="mb-3 mt-3">
-              <label class="form-label">Tipo de Producto:</label>
+              <label class="form-label">Refrigerado:</label>
               <input
                 type="text"
                 class="form-control"
@@ -25,7 +25,7 @@
                   <div class="container mt-auto">
                     <div class="row justify-content-center">
                       <div class="col-8">
-                        <h2>{{ alimentacion.refrigerable }}</h2>
+                        <h2>{{ alimentacion.refrigerado }}</h2>
                         <form class="was-validated">
                           <div class="mb-3 mt-3">
                             <label class="form-label">Tipo de Producto:</label>
@@ -57,7 +57,16 @@
                               type="text"
                               class="form-control"
                               name="tipoAlimentacion"
-                              [(ngModel)]="alimentacion.refrigerable"
+                              [(ngModel)]="alimentacion.refrigerado"
+                              readonly
+                            />
+                          </div>
+                          <div><label class="form-label">Precio:</label></div>
+                          <div class="mb-3 input-group">
+                            <input
+                              type="text"
+                              class="form-control"
+                              [(ngModel)]="alimentacion.precio"
                               readonly
                             />
                           </div>

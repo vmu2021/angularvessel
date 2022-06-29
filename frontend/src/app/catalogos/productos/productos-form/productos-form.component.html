@@ -20,14 +20,14 @@
               <div class="mb-3" *ngIf="formulario == 1">
                 <label class="form-label">Descripcion:</label>
                 <input type="text" class="form-control" placeholder="p.e., tomate" name="descripcion" minlength="3" maxlength="20"
-                  [(ngModel)]="alimentacion.descripcion" aria-label="Default select example" required>
+                  [(ngModel)]="alimento.descripcion" aria-label="Default select example" required>
               </div>
 
               <div class="mb-3 input-group" *ngIf="formulario == 1">
                 <label
                   class="form-label">Refrigerable:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                <select [(ngModel)]="alimentacion.refrigerable" (change)="capturar()"
+                <select [(ngModel)]="alimento.refrigerado" (change)="capturar()"
                   [ngModelOptions]="{standalone: true}" aria-label="Default select example" required>
                   <option disabled selected></option>
                   <option *ngFor="let dato of datos1">
@@ -47,7 +47,7 @@
               </div> -->
               <div class="mb-3 input-group" *ngIf="formulario == 1">
                 <label class="form-label">Precio:&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                <input type="number" class="form-control" [(ngModel)]="alimentacion.precio" placeholder="" name="precio" required
+                <input type="number" class="form-control" [(ngModel)]="alimento.precio" placeholder="" name="precio" required
                 min="1" max="99999" #prod21="ngModel" [ngClass]="{
               'is-invalid': prod21.invalid && (prod21.dirty || prod21.touched),
               'is-valid': ! prod21.invalid
@@ -86,6 +86,8 @@
                 </div>
                 <div class="valid-feedback">Ok</div>
               </div>
+
+             
           </form>
         </div>
       </div>

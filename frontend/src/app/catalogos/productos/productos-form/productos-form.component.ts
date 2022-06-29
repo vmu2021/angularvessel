@@ -6,6 +6,7 @@ import { Catalogo } from 'src/app/catalogos/models/catalogo';
 import { MenajeImpl } from 'src/app/catalogos/models/menaje-impl';
 
 import { environment } from 'src/environments/environment';
+import { CatalogoImpl } from '../../models/catalogo-impl';
 import { CatalogoService } from '../../service/catalogo.service';
 import { ProductoService } from '../../service/producto.service';
 
@@ -22,10 +23,12 @@ export class ProductosFormComponent implements OnInit {
   datos2;
   opcionSeleccionada: string = '0'
   verSeleccion: string = '';
-  alimentacion: AlimentacionImpl = new AlimentacionImpl();
+  alimento: AlimentacionImpl = new AlimentacionImpl();
   menaje: MenajeImpl = new MenajeImpl();
   catalogos:Catalogo[]=[];
   formulario:number = 0;
+  tipocatalogo: string = '';
+  catalogo: CatalogoImpl = new CatalogoImpl();
 
   private host:string = environment.host;
   private urlEndpoint:string = `${this.host}catalogos`
@@ -37,11 +40,11 @@ export class ProductosFormComponent implements OnInit {
       private router: Router,
       private activatedRoute: ActivatedRoute) { this.datos=['Alimentación', 'Menaje'];
       this.datos1=[true, false]
-    this.datos2=[true, false]}
-
+    this.datos2=[true, false]
+  }
   ngOnInit(): void {
     let id: string = this.cargarCatalogo();
-    this.alimentacion.catalogo=`${this.urlEndpoint}/${id}`;
+    this.alimento.catalogo=`${this.urlEndpoint}/${id}`;
     this.menaje.catalogo=`${this.urlEndpoint}/${id}`;
   }
 
@@ -50,7 +53,7 @@ export class ProductosFormComponent implements OnInit {
   }
 
   onAddAlimentacion(): void {
-    this.productoService.addAlimentacion(this.alimentacion).subscribe();
+    this.productoService.addAlimentacion(this.alimento).subscribe();
     let id: string = this.cargarCatalogo();
     this.router.navigate([`/catalogos/editar/${id}`]);
   }

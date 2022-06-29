@@ -37,9 +37,9 @@ modificarAlimentacion(): void {
 }
 esRefrigerable(alimentacion: AlimentacionImpl){
 let iconoRefrigerado;
-  if (alimentacion.refrigerable == true) {
+  if (alimentacion.refrigerado == true) {
   iconoRefrigerado = faDroplet;
-} else{alimentacion.refrigerable == false} 
+} else{alimentacion.refrigerado == false} 
 return iconoRefrigerado;
 }
 

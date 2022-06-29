@@ -13,6 +13,7 @@ export class CatalogoService {
   private host: string = environment.host;
   private urlEndPoint: string = `${this.host}catalogos`;
   private urlEndPointTel: string = `${this.host}menajes`;
+  private urlEndPointAli: string = `${this.host}alimentos`;
 
 constructor(
     private http: HttpClient,
@@ -20,7 +21,7 @@ constructor(
 
 getId(url: string):string{
       let posicionFinal: number = url.lastIndexOf('/');
-      let numId:string = url.slice(posicionFinal + 1, url.length);
+      let numId: string = url.slice(posicionFinal + 1, url.length);
       return numId;
     }
 
@@ -31,7 +32,7 @@ getCatalogos(): Observable<any> {
 
 mapearCatalogo(catalogoApi: any): CatalogoImpl {
   let catalogo: Catalogo = new CatalogoImpl();
-  catalogo.idCatalogo= this.getId(catalogoApi._links.catalogo.href);
+  catalogo.idCatalogo= this.getId(catalogoApi._links.self.href);
   catalogo.descripcion= catalogoApi.descripcion;
   // catalogo.urlCatalogo=catalogoApi._links.catalogo.href;
   return catalogo;
@@ -39,7 +40,7 @@ mapearCatalogo(catalogoApi: any): CatalogoImpl {
 
 extraerCatalogos(respuestaApi: any): Catalogo[] {
   const catalogos: Catalogo[] = [];
-  respuestaApi._embedded.catalogos.forEach((a: any) => {
+  respuestaApi._embedded.catalogo.forEach((a: any) => {
   catalogos.push(this.mapearCatalogo(a));
   });
   return catalogos;
@@ -104,7 +105,7 @@ getCatalogo(id:string): Observable<any>{
 }
 
 getCatalogosBuscados(descripcion:string, tipo:string): Observable<any>{
-  return this.http.get<any>(`${this.host}menajes/search/buscar-productos?marca=${descripcion}&tipo=${tipo}`).pipe(
+  return this.http.get<any>(`${this.host}menajes/search/buscar-productos?descripcion=${descripcion}&tipo=${tipo}`).pipe(
     catchError((e) => {
       if (e.status === 400) {
         return throwError(() => new Error(e));

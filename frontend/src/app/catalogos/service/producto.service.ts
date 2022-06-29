@@ -12,14 +12,14 @@ import { ProductoImpl } from '../models/producto-impl';
 export class ProductoService {
   private host: string = environment.host;
   private urlEndPoint: string = `${this.host}catalogos`;
-  private urlEndPointAli: string = `${this.host}alimentacion`;
+  private urlEndPointAli: string = `${this.host}alimentos`;
   private urlEndPointMen: string = `${this.host}menajes`;
-  private urnlEndPointPro: string = `${this.host}productos`;
+  private urnlEndPointPro: string = `${this.host}productosCatalogo`;
 
   constructor(private http: HttpClient) {}
 
   getProductosCatalogados(id: string): Observable<any> {
-    return this.http.get<any>(`${this.urlEndPoint}/${id}/productos`).pipe(
+    return this.http.get<any>(`${this.urlEndPoint}/${id}/productosCatalogo`).pipe(
       catchError((e) => {
         if (e.status === 400) {
           return throwError(() => new Error(e));
@@ -36,9 +36,9 @@ export class ProductoService {
     let alimentoNuevo: AlimentacionImpl = new AlimentacionImpl();
 
     alimentoNuevo.catalogo=alimentoApi._links.catalogo.href;
-    alimentoNuevo.descripcion = alimentoApi.descripcionProducto;
+    alimentoNuevo.descripcion = alimentoApi.descripcion;
     alimentoNuevo.precio = alimentoApi.precio;
-    alimentoNuevo.refrigerable = alimentoApi.refrigerable;
+    alimentoNuevo.refrigerado = alimentoApi.refrigerado;
     alimentoNuevo.urlProducto=alimentoApi._links.self.href;
     alimentoNuevo.idProducto = this.getId(
       alimentoApi._links.self.href
@@ -58,7 +58,7 @@ export class ProductoService {
     }
     return alimentaciones;
   }
-
+  
   
   addAlimentacion(alimento: AlimentacionImpl): Observable<any> {
     return this.http.post(this.urlEndPointAli, alimento).pipe(
@@ -140,7 +140,7 @@ export class ProductoService {
     menajeNuevo.precio = menajeApi.precio;
     menajeNuevo.reciclable = menajeApi.reciclable;
     menajeNuevo.urlProducto=menajeApi._links.self.href;
-    menajeNuevo.idProducto = this.getId(menajeApi.urlProducto);
+    menajeNuevo.idProducto = this.getId(menajeApi._links.self.href);
     return menajeNuevo;
   }
 

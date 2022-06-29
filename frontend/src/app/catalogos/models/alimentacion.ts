@@ -1,4 +1,4 @@
 export interface Alimentacion {
-    refrigerable: boolean;
+    refrigerado: boolean;
 
 }
