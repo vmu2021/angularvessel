@@ -36,8 +36,8 @@ export class ProductosFormComponent implements OnInit {
       private productoService: ProductoService,
       private router: Router,
       private activatedRoute: ActivatedRoute) { this.datos=['Alimentación', 'Menaje'];
-      this.datos1=['SI', 'NO']
-    this.datos2=['SI', 'NO']}
+      this.datos1=[true, false]
+    this.datos2=[true, false]}
 
   ngOnInit(): void {
     let id: string = this.cargarCatalogo();
@@ -50,7 +50,7 @@ export class ProductosFormComponent implements OnInit {
   }
 
   onAddAlimentacion(): void {
-    this.productoService.addAlimentaciones(this.alimentacion).subscribe();
+    this.productoService.addAlimentacion(this.alimentacion).subscribe();
     let id: string = this.cargarCatalogo();
     this.router.navigate([`/catalogos/editar/${id}`]);
   }
@@ -60,6 +60,8 @@ export class ProductosFormComponent implements OnInit {
     let id: string = this.cargarCatalogo();
     this.router.navigate([`/catalogos/editar/${id}`]);
   }
+
+  
 
   capturar() {
     this.verSeleccion = this.opcionSeleccionada;

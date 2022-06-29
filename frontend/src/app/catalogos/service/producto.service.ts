@@ -12,7 +12,7 @@ import { ProductoImpl } from '../models/producto-impl';
 export class ProductoService {
   private host: string = environment.host;
   private urlEndPoint: string = `${this.host}catalogos`;
-  private urlEndPointAli: string = `${this.host}alimentos`;
+  private urlEndPointAli: string = `${this.host}alimentacion`;
   private urlEndPointMen: string = `${this.host}menajes`;
   private urnlEndPointPro: string = `${this.host}productos`;
 
@@ -59,8 +59,8 @@ export class ProductoService {
     return alimentaciones;
   }
 
-  //post
-  addAlimentaciones(alimento: AlimentacionImpl): Observable<any> {
+  
+  addAlimentacion(alimento: AlimentacionImpl): Observable<any> {
     return this.http.post(this.urlEndPointAli, alimento).pipe(
       catchError((e) => {
         if (e.status === 400) {
@@ -73,9 +73,18 @@ export class ProductoService {
       })
     );
   }
-  postAlimentacion(alimento: AlimentacionImpl): Observable<any>{
-    return this.http.post(this.urlEndPoint, alimento);
-  }
+
+
+//   // DELETE
+//   deleteAlimentacion(alimentacionEliminar: string): Observable<any>{
+//     return this.http.delete(alimentacionEliminar);
+//   }
+
+// // PATCH
+//   update(idAlimentacion: string, alimentacion: AlimentacionImpl): Observable<any> {
+//     return this.http
+//       .patch<any>(`${this.urlEndPointAli}/${idAlimentacion}`, alimentacion);
+//     }
 
   //delete
   deleteAlimentaciones(id: string): Observable<any> {

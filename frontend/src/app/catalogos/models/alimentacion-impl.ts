@@ -7,14 +7,14 @@ export class AlimentacionImpl extends ProductoImpl{
         super();
       }
     
-    esReciclable(refrigerable: boolean){
-      let esRefrigerado;
-      if (refrigerable==true) {
-        esRefrigerado="refrigerado";
-      } else{
-        esRefrigerado="no refrigerado"
-      }
-      return esRefrigerado;
-    }
+    // esReciclable(refrigerable: boolean){
+    //   let esRefrigerado;
+    //   if (refrigerable==true) {
+    //     esRefrigerado="refrigerado";
+    //   } else{
+    //     esRefrigerado="no refrigerado"
+    //   }
+    //   return esRefrigerado;
+    // }
 
 }
