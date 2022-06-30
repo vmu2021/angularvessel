@@ -1,8 +1,11 @@
-
+<div class="container mt-auto" id="contenedor">
+  <div class="row justify-content-center">
+    <div class="row"center>
+      <h2>CATALOGOS</h2>
+    </div>
+    <br>
+    <br>
 <div class="container-fluid min-vh-100" id="general">
-  <div class="row"center>
-    <h2>CATALOGOS</h2>
-  </div>
   <div *ngFor="let catalogo of catalogos" id="cadaCatalogo">
     <app-catalogo-item
     [catalogo]="catalogo"
@@ -11,4 +14,16 @@
     (catalogoConsultar)="onCatalogoConsultar($event)">
     </app-catalogo-item>
   </div>
-</div>
+  <br>
+  <br>
+  <div class="container mt-auto" id="contenedor">
+    <div class="row justify-content-center">
+      <i class="fa fa-align-center" aria-hidden="true">
+        <a routerLink="/catalogos/formulario-catalogo"
+        ><button id="añadir" type="button">
+          Añadir Catalogo
+        </button></a
+        ></i>
+      </div>
+    </div>
+  </div>

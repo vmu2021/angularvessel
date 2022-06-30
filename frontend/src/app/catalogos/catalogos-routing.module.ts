@@ -9,6 +9,7 @@ import { ProductosFormComponent } from './productos/productos-form/productos-for
 import { AlimentacionConsultaFormComponent } from './productos-consulta/alimentacion-consulta-form/alimentacion-consulta-form.component';
 import { MenajeConsultaFormComponent } from './productos-consulta/menaje-consulta-form/menaje-consulta-form.component';
 import { AlimentacionModificarComponent } from './productos/alimentacion-modificar/alimentacion-modificar.component';
+import { ProductosComponent } from './productos/productos.component';
 
 const routes: Routes = [{
   path: '',
@@ -46,6 +47,10 @@ const routes: Routes = [{
   path: 'menajes/editar/:id',
   component: MenajeModificarComponent
 },
+{
+  path: 'productos/',
+  component: ProductosComponent
+}
 ];
 
 @NgModule({
